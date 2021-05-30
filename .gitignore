@@ -113,6 +113,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Excel files
-
+# Ignore All (xlsx) files
 *.xlsx
