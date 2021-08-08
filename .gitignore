@@ -115,3 +115,6 @@ dmypy.json
 
 # Ignore All (xlsx) files
 *.xlsx
+
+# Ignore repl.it
+.replit
