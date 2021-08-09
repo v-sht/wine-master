@@ -1,3 +1,4 @@
+import argparse
 import collections
 import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -5,6 +6,11 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+
+parser = argparse.ArgumentParser(
+    description = 'Программа развертывает сайт магазина "Новое русское вино"')
+parser.add_argument('File', help='Название файла с прайс-листом')
+file_name = parser.parse_args()
 
 time_now = datetime.datetime.now()
 current_age = time_now.year - 1920
@@ -19,7 +25,7 @@ else:
 
 
 excel_data_df = pandas.read_excel(
-    'price.xlsx',
+    file_name.File,
     na_values='nan',
     keep_default_na=False)
 
